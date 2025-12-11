@@ -28,6 +28,17 @@ interface Props {
   timeRange: { start: number; end: number };
 }
 
+// Convert 24-hour time to 12-hour format with AM/PM
+const formatTo12Hour = (time24: string): string => {
+  const timePart = time24.split(" ")[0]; // Handle datetime strings that might have date part
+  const [hours, minutes] = timePart.split(":");
+  const hour24 = parseInt(hours, 10);
+  const hour12 = hour24 === 0 ? 12 : hour24 > 12 ? hour24 - 12 : hour24;
+  const ampm = hour24 >= 12 ? "PM" : "AM";
+  const mins = minutes || "00";
+  return `${hour12}:${mins} ${ampm}`;
+};
+
 export function WeatherChart({ dayData, timeRange }: Props) {
   if (!dayData?.hours) return null;
 
@@ -36,7 +47,7 @@ export function WeatherChart({ dayData, timeRange }: Props) {
     return hour >= timeRange.start && hour <= timeRange.end;
   });
 
-  const labels = filtered.map((h: WeatherHour) => h.datetime);
+  const labels = filtered.map((h: WeatherHour) => formatTo12Hour(h.datetime));
   const temps = filtered.map((h: WeatherHour) => h.temp);
   const winds = filtered.map((h: WeatherHour) => h.windspeed);
   const humidities = filtered.map((h: WeatherHour) => h.humidity);
@@ -81,17 +92,16 @@ export function WeatherChart({ dayData, timeRange }: Props) {
           color: "#666",
           font: { size: 11 },
           callback: (_value: number, index: number) => {
-            const label = labels[index] ?? "";
-            return label.replace(/:00$/, "");
-          },
-          y: {
-            ticks: {
-              color: "#666",
-              font: { size: 11 },
-            },
-            grid: { color: "rgba(0,0,0,0.05)" },
+            return labels[index] ?? "";
           },
         },
+      },
+      y: {
+        ticks: {
+          color: "#666",
+          font: { size: 11 },
+        },
+        grid: { color: "rgba(0,0,0,0.05)" },
       },
     },
   };
