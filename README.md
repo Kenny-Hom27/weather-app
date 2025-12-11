@@ -3,6 +3,8 @@
 A modern, fast, and beautifully designed weather forecasting tool built with **React**, **TypeScript**, **Chart.js**, and **CSS Modules**.  
 Pick a weekday, select a city, and explore the weather forecast for the next 10 matching days — complete with charts, icons, and smart weather summaries.
 
+## PREVIEW: https://effulgent-sorbet-58a721.netlify.app/    
+
 ## 🚀 Getting Started
 
 ### 1. Install dependencies
