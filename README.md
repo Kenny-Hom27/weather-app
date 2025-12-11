@@ -1,74 +1,71 @@
-# React + TypeScript + Vite
+# 🌤 Whether.io — Weekly Weather Forecast Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fast, and beautifully designed weather forecasting tool built with **React**, **TypeScript**, **Chart.js**, and **CSS Modules**.  
+Pick a weekday, select a city, and explore the weather forecast for the next 10 matching days — complete with charts, icons, and smart weather summaries.
 
-Currently, two official plugins are available:
+## 🚀 Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Install dependencies
+```sh
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-# weather-app
+## ✨ Features
+
+### 🔍 Smart Location Autocomplete
+- Powered by the **Open-Meteo Geocoding API**
+- Debounced search for smooth input  
+- Clean, accessible dropdown UI  
+- Selecting a location instantly refreshes forecasts  
+
+---
+
+### 📅 Weekly Forecast Explorer
+- Choose any weekday (Mon–Sun)  
+- App automatically generates the **next 10 occurrences** of that weekday  
+- Fetches weather using **one optimized Visual Crossing API range request**  
+- Renders days inside a smooth **React Slick carousel**  
+
+---
+
+### 📊 Interactive Weather Charts
+Built with **Chart.js + react-chartjs-2**:
+
+- Temperature (°F)  
+- Wind speed (mph)  
+- Humidity (%)  
+- Tooltips and hover indicators  
+- Theming matches the app’s design system  
+
+---
+
+### 🧠 Smart Weather Insights
+Each forecast includes an auto-generated description such as:
+
+- 🌦 *High chance of rain — consider backup plans*  
+- ❄️ *Chilly — bring layers*  
+- 🌞 *Nice day for a meetup*  
+- 💨 *Breezy afternoon*
+
+Descriptions are algorithmically generated from:
+
+- Temperature  
+- Rain probability  
+- Wind speed  
+- Humidity  
+
+---
+
+### 🌤 Matching Weather Icons
+Icons dynamically change based on conditions:
+
+- ☀️ Sunny  
+- ⛅ Partly cloudy  
+- 🌧 Rainy  
+- 🌨 Snowy  
+- 💨 Windy  
+
+---
