@@ -1,0 +1,31 @@
+.scheduleBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  margin-bottom: 0;
+  margin-bottom: var(--space-lg);
+  font-size: var(--font-body);
+  padding: var(--space-lg);
+}
+
+.scheduleBar select {
+  margin-left: var(--space-xs);
+  padding: 4px 6px;
+  font-size: var(--font-body);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: white;
+}
+
+.timeSelector {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 780px) {
+  .scheduleBar {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

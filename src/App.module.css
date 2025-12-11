@@ -1,0 +1,13 @@
+.appFrame {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: var(--space-md);
+  position: relative;
+  background: var(--color-card-bg);
+}
+
+@media (max-width: 780px) {
+  .appFrame {
+    margin: 20px;
+  }
+}

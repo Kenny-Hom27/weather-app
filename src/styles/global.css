@@ -1,0 +1,63 @@
+/* ------------------------------------------------------
+   GLOBAL DESIGN TOKENS
+------------------------------------------------------- */
+
+:root {
+  /* FONT SIZES */
+  --font-heading: 22px;
+  --font-subheading: 18px;
+  --font-body: 16px;
+  --font-small: 14px;
+
+  /* COLORS */
+  --color-primary: #cc3a3a;
+  --color-bg: #fff7f7;
+  --color-card-bg: #ffffff;
+  --color-border: #ededed;
+  --color-soft-border: #e4caca;
+  --color-text: #333333;
+  --color-muted: #666666;
+
+  /* CHART COLORS */
+  --color-temp: #3a7bd5;
+  --color-wind: #d9534f;
+  --color-humidity: #3cb878;
+
+  /* SPACING SCALE */
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-xxl: 32px;
+
+  /* RADII */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  /* SHADOWS */
+  --shadow-soft: 0 2px 5px rgba(0, 0, 0, 0.04);
+
+  /* BREAKPOINTS */
+  --bp-mobile: 780px;
+}
+
+/* ------------------------------------------------------
+   GLOBAL RESET + BASE
+------------------------------------------------------- */
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+  font-size: var(--font-body);
+  color: var(--color-text);
+}
+
+* {
+  box-sizing: border-box;
+}

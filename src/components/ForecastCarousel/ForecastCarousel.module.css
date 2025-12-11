@@ -1,0 +1,37 @@
+.carouselWrapper {
+  position: relative;
+}
+
+/* Arrows */
+.customArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 48px;
+  color: var(--color-text);
+  cursor: pointer;
+  opacity: 0.85;
+  z-index: 20;
+}
+
+.customArrow:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+  transition: 0.15s ease-out;
+}
+
+.leftArrow {
+  left: 0;
+}
+
+.rightArrow {
+  right: 0;
+}
+
+@media (max-width: 780px) {
+  .rightArrow {
+    right: 0;
+  }
+}
