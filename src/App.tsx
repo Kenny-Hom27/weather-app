@@ -20,11 +20,7 @@ export default function App() {
 
   useEffect(() => {
     async function load() {
-      const { dates, weatherMap } = await loadWeatherData(
-        location,
-        weekday,
-        10
-      );
+      const { dates, weatherMap } = await loadWeatherData(location, weekday, 5);
 
       setDates(dates);
       setWeatherByDate(weatherMap);
