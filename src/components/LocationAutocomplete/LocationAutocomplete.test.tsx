@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { LocationAutocomplete } from "./LocationAutocomplete";
+import { vi } from "vitest";
 import * as locationUtils from "../../utils/fetchLocationResults";
 
 // Mock result returned from util

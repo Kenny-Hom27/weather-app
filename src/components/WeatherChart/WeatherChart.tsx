@@ -12,6 +12,7 @@ import type { WeatherDay, WeatherHour } from "../../types/types";
 
 import styles from "./WeatherChart.module.css";
 import { CHART_COLORS } from "../../constants/constants";
+import { formatTo12Hour } from "../../utils/formatTo12Hour";
 
 // Register Chart.js pieces
 ChartJS.register(
@@ -27,17 +28,6 @@ interface Props {
   dayData: WeatherDay;
   timeRange: { start: number; end: number };
 }
-
-// Convert 24-hour time to 12-hour format with AM/PM
-const formatTo12Hour = (time24: string): string => {
-  const timePart = time24.split(" ")[0]; // Handle datetime strings that might have date part
-  const [hours, minutes] = timePart.split(":");
-  const hour24 = parseInt(hours, 10);
-  const hour12 = hour24 === 0 ? 12 : hour24 > 12 ? hour24 - 12 : hour24;
-  const ampm = hour24 >= 12 ? "PM" : "AM";
-  const mins = minutes || "00";
-  return `${hour12}:${mins} ${ampm}`;
-};
 
 export function WeatherChart({ dayData, timeRange }: Props) {
   if (!dayData?.hours) return null;
