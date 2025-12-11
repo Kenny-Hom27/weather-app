@@ -80,7 +80,7 @@ export function WeatherChart({ dayData, timeRange }: Props) {
         ticks: {
           color: "#666",
           font: { size: 11 },
-          callback: (value: number, index: number) => {
+          callback: (_value: number, index: number) => {
             const label = labels[index] ?? "";
             return label.replace(/:00$/, "");
           },
