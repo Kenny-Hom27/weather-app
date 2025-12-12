@@ -1,6 +1,6 @@
 import { DAYS } from "../constants/constants";
 
-export function getFutureDatesForWeekday(weekday: string, count: number) {
+export const getFutureDatesForWeekday = (weekday: string, count: number) => {
   const target = DAYS.indexOf(weekday);
 
   const now = new Date();
@@ -18,4 +18,4 @@ export function getFutureDatesForWeekday(weekday: string, count: number) {
   }
 
   return results;
-}
+};

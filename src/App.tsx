@@ -1,11 +1,10 @@
-import { ForecastCarousel } from "./components/ForecastCarousel/ForecastCarousel";
 import { WeatherProvider } from "./contexts/WeatherProvider";
-
+import { Header } from "./components/Header/Header";
+import { ScheduleBar } from "./components/ScheduleBar/ScheduleBar";
+import { ForecastCarousel } from "./components/ForecastCarousel/ForecastCarousel";
 import styles from "./App.module.css";
-import ScheduleBar from "./components/ScheduleBar/ScheduleBar";
-import Header from "./components/Header/Header";
 
-export default function App() {
+export const App = () => {
   return (
     <WeatherProvider>
       <div className={styles.appFrame}>
@@ -15,4 +14,4 @@ export default function App() {
       </div>
     </WeatherProvider>
   );
-}
+};

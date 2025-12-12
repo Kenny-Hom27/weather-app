@@ -6,9 +6,9 @@ export interface WeatherInterpretation {
   result: string;
 }
 
-export function interpretWeather(
+export const interpretWeather = (
   dayData: WeatherCurrentConditions | null | undefined
-): WeatherInterpretation {
+): WeatherInterpretation => {
   if (!dayData) {
     return {
       icon: "❓",
@@ -79,4 +79,4 @@ export function interpretWeather(
     message: "Pleasant conditions for a meetup",
     result: "Sunny",
   };
-}
+};

@@ -4,7 +4,7 @@ import { LocationAutocomplete } from "../LocationAutocomplete/LocationAutocomple
 import { useWeather } from "../../contexts/useWeatherContext";
 import styles from "./ScheduleBar.module.css";
 
-export default function ScheduleBar() {
+export const ScheduleBar = () => {
   const {
     location,
     weekday,
@@ -36,4 +36,4 @@ export default function ScheduleBar() {
       </div>
     </div>
   );
-}
+};

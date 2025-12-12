@@ -8,7 +8,7 @@ interface Props {
   onSelect: (location: string) => void;
 }
 
-export function LocationAutocomplete({ value, onSelect }: Props) {
+export const LocationAutocomplete = ({ value, onSelect }: Props) => {
   const [query, setQuery] = useState(value);
   const [results, setResults] = useState<LocationResult[]>([]);
   const [open, setOpen] = useState(false);
@@ -62,4 +62,4 @@ export function LocationAutocomplete({ value, onSelect }: Props) {
       )}
     </div>
   );
-}
+};

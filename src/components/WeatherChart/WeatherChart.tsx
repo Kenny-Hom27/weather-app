@@ -29,7 +29,7 @@ interface Props {
   timeRange: { start: number; end: number };
 }
 
-export function WeatherChart({ dayData, timeRange }: Props) {
+export const WeatherChart = ({ dayData, timeRange }: Props) => {
   if (!dayData?.hours) return null;
 
   const filtered = dayData.hours.filter((h: WeatherHour) => {
@@ -105,4 +105,4 @@ export function WeatherChart({ dayData, timeRange }: Props) {
       />
     </div>
   );
-}
+};

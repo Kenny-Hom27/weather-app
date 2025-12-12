@@ -3,7 +3,7 @@ import { loadWeatherData } from "../utils/loadWeatherData";
 import type { TimeRangeKey, WeatherDay } from "../types/types";
 import { WeatherContext } from "./useWeatherContext";
 
-export function WeatherProvider({ children }: { children: ReactNode }) {
+export const WeatherProvider = ({ children }: { children: ReactNode }) => {
   const [location, setLocation] = useState<string>("New York, NY");
   const [weekday, setWeekday] = useState<string>("Friday");
   const [timeRange, setTimeRange] = useState<TimeRangeKey>("Afternoon");
@@ -39,4 +39,4 @@ export function WeatherProvider({ children }: { children: ReactNode }) {
       {children}
     </WeatherContext.Provider>
   );
-}
+};

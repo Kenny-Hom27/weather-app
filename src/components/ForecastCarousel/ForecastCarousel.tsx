@@ -27,7 +27,7 @@ const ArrowRight = ({ onClick }: { onClick: () => void }) => (
   </button>
 );
 
-export function ForecastCarousel() {
+export const ForecastCarousel = () => {
   const { dates, weatherByDate, timeRange } = useWeather();
   const sliderRef = useRef<Slider | null>(null);
 
@@ -73,4 +73,4 @@ export function ForecastCarousel() {
       </Slider>
     </div>
   );
-}
+};
