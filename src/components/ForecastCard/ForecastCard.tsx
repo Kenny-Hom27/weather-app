@@ -34,7 +34,6 @@ const NoHoursMessage = () => {
 };
 
 export const ForecastCard = ({ label, dayData, timeRange }: Props) => {
-  // Still returns icons + message + result (e.g. Sunny, Rainy, etc)
   const { icon, message, result } = interpretWeather(dayData);
 
   if (!dayData) {

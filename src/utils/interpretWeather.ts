@@ -6,6 +6,32 @@ export interface WeatherInterpretation {
   result: string;
 }
 
+/**
+ * Interprets weather conditions and returns a user-friendly interpretation with icon, message, and result.
+ *
+ * The function evaluates weather data based on priority rules:
+ * 1. Rain probability (>30%) - returns rainy interpretation
+ * 2. Snow conditions (temp <= 32°F and rain >20%) - returns snowy interpretation
+ * 3. Wind speed (>15 mph) - returns windy interpretation
+ * 4. Temperature ranges:
+ *    - 60-75°F: Cool/Nice day
+ *    - <50°F: Chilly
+ *    - >85°F: Hot
+ *    - Default: Sunny/Pleasant
+ *
+ * @param dayData - Current weather conditions data, or null/undefined if unavailable
+ * @returns An object containing an emoji icon, user-friendly message, and result classification
+ *
+ * @example
+ * ```ts
+ * const interpretation = interpretWeather({
+ *   temp: 72,
+ *   windspeed: 5,
+ *   precipprob: 10
+ * });
+ * // Returns: { icon: "☀️", message: "Nice day for a meetup", result: "Cool" }
+ * ```
+ */
 export const interpretWeather = (
   dayData: WeatherCurrentConditions | null | undefined
 ): WeatherInterpretation => {

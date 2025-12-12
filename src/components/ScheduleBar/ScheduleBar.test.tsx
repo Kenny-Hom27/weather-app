@@ -1,17 +1,53 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import ScheduleBar from "./ScheduleBar";
+import { vi } from "vitest";
+import { ScheduleBar } from "./ScheduleBar";
+import { WeatherContext } from "../../contexts/useWeatherContext";
+import type { TimeRangeKey, WeatherDay } from "../../types/types";
+
+interface MockContextValues {
+  location?: string;
+  weekday?: string;
+  timeRange?: TimeRangeKey;
+  dates?: Date[];
+  weatherByDate?: Record<string, WeatherDay>;
+  setLocation?: (value: string) => void;
+  setWeekday?: (value: string) => void;
+  setTimeRange?: (value: TimeRangeKey) => void;
+}
+
+// Helper to create a test wrapper with mock context
+const createMockProvider = (mockValues: MockContextValues = {}) => {
+  const defaultValues = {
+    location: "New York, NY",
+    weekday: "Friday",
+    timeRange: "Afternoon" as TimeRangeKey,
+    dates: [] as Date[],
+    weatherByDate: {} as Record<string, WeatherDay>,
+    setLocation: vi.fn(),
+    setWeekday: vi.fn(),
+    setTimeRange: vi.fn(),
+    ...mockValues,
+  };
+
+  return ({ children }: { children: React.ReactNode }) => (
+    <WeatherContext.Provider value={defaultValues}>
+      {children}
+    </WeatherContext.Provider>
+  );
+};
 
 describe("ScheduleBar", () => {
   test("renders location input and dropdowns", () => {
+    const MockProvider = createMockProvider({
+      location: "New York",
+      weekday: "Friday",
+      timeRange: "Afternoon",
+    });
+
     render(
-      <ScheduleBar
-        location="New York"
-        weekday="Friday"
-        timeRange="Afternoon"
-        setLocation={() => {}}
-        setWeekday={() => {}}
-        setTimeRange={() => {}}
-      />
+      <MockProvider>
+        <ScheduleBar />
+      </MockProvider>
     );
 
     // Check the input value
@@ -28,15 +64,18 @@ describe("ScheduleBar", () => {
     const setWeekday = vi.fn();
     const setTimeRange = vi.fn();
 
+    const MockProvider = createMockProvider({
+      location: "NY",
+      weekday: "Friday",
+      timeRange: "Afternoon",
+      setWeekday,
+      setTimeRange,
+    });
+
     render(
-      <ScheduleBar
-        location="NY"
-        weekday="Friday"
-        timeRange="Afternoon"
-        setLocation={() => {}}
-        setWeekday={setWeekday}
-        setTimeRange={setTimeRange}
-      />
+      <MockProvider>
+        <ScheduleBar />
+      </MockProvider>
     );
 
     fireEvent.change(screen.getByDisplayValue("Friday"), {

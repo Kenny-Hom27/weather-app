@@ -14,7 +14,6 @@ import styles from "./WeatherChart.module.css";
 import { CHART_COLORS } from "../../constants/constants";
 import { formatTo12Hour } from "../../utils/formatTo12Hour";
 
-// Register Chart.js pieces
 ChartJS.register(
   CategoryScale,
   LinearScale,
