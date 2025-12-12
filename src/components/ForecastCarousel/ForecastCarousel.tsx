@@ -1,19 +1,13 @@
 import Slider from "react-slick";
 import { useRef } from "react";
 import { ForecastCard } from "../ForecastCard/ForecastCard";
-import type { WeatherDay } from "../../types/types";
 import { TIME_RANGES } from "../../constants/constants";
+import { useWeather } from "../../contexts/useWeatherContext";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import styles from "./ForecastCarousel.module.css";
-
-interface Props {
-  dates: Date[];
-  weatherByDate: Record<string, WeatherDay>;
-  timeRange: string;
-}
 
 const ArrowLeft = ({ onClick }: { onClick: () => void }) => (
   <button
@@ -33,7 +27,8 @@ const ArrowRight = ({ onClick }: { onClick: () => void }) => (
   </button>
 );
 
-export function ForecastCarousel({ dates, weatherByDate, timeRange }: Props) {
+export function ForecastCarousel() {
+  const { dates, weatherByDate, timeRange } = useWeather();
   const sliderRef = useRef<Slider | null>(null);
 
   const sliderSettings = {
